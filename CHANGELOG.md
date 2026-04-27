@@ -15,6 +15,7 @@ Docs: https://docs.openclaw.ai
 
 ### Fixes
 
+- Security/CodeQL: replace file SecretRef id gateway schema regex validation with segment-aligned predicates and set empty permissions on release summary/backfill jobs so the narrowed CodeQL profile stays clean. Thanks @vincentkoc.
 - Sessions: ignore future-dated session activity timestamps during reset freshness checks and cap future `updatedAt` values at the merge boundary so clock-skewed messages cannot keep stale sessions alive forever. Fixes #72989. Thanks @martingarramon.
 - Plugins/CLI: allow managed plugin installs when the active extensions root is a symlink to a real state directory, while keeping nested target symlinks blocked and suppressing misleading hook-pack fallback errors for install-boundary failures. Fixes #72946. Thanks @mayank6136.
 - Gateway/startup: keep hot Gateway boot paths on leaf config imports and add max-RSS reporting to the gateway startup bench so low-memory startup regressions are visible before release. Thanks @vincentkoc.
